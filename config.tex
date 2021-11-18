@@ -1,0 +1,61 @@
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\setmainfont{Open Sans}
+\setmonofont{Consolas}
+\floatstyle{plaintop}
+\restylefloat{table}
+% \titleformat{\paragraph}
+% {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+% \titlespacing*{\paragraph} {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex
+%   plus .2ex}
+
+% \titlespacing{\section}{0pt}{\parskip}{-\parskip}
+
+\graphicspath{{./img/}}
+
+% \tcbset{colframe=white}
+
+\hypersetup{
+  colorlinks,
+  linkcolor={red!50!black},
+  citecolor={blue!50!black},
+  urlcolor={blue!80!black}
+}
+
+\lstset{
+  basicstyle=\ttfamily,
+  backgroundcolor=\color{gray},
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+
+\definecolor{monokaibg}{HTML}{272822}
+\definecolor{borlandbg}{HTML}{eeeeee}
+\definecolor{sectionbg}{HTML}{56b0c9}
+\definecolor{titlepagebg}{HTML}{44899d}
+% \definecolor{Text}{HTML}{FFFFFF}
+% \AtBeginEnvironment{minted}{\color{Text}}
+
+\newcommand{\csection}[1]{
+  \begin{tcolorbox}[colback=sectionbg]
+    \section{#1}
+  \end{tcolorbox}
+  \noindent
+}
+
+
+\newcommand{\titre}[1]{
+\vfill
+\begin{spacing}{1.2}
+\huge\textsc{#1}
+\end{spacing}
+\vfill
+}
+\newcommand{\cours}[1]{{\Large\textsc{#1}}}
+\newcommand{\groupe}[1]{{\Large #1}}
+
+\newenvironment{ctitlepage}
+{\cleardoublepage\begin{titlepage}\thispagestyle{empty}\begin{center}
+      \includegraphics[scale=1]{polylogo.png}
+      \vfill}
+    {\end{center}\end{titlepage}}

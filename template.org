@@ -1,0 +1,148 @@
+# -*- ispell-local-dictionary: "fr" -*-
+
+#+TITLE: Template
+#+AUTHOR: Author Name
+# for french
+#+LANGUAGE: fr
+#+OPTIONS: title:nil author:nil date:nil toc:nil
+#+LATEX_HEADER: \usepackage[AUTO]{babel}
+#+LATEX_HEADER: \input{packages}
+#+LATEX_HEADER: \input{config}
+#+LATEX_HEADER: \onehalfspacing
+# for APA7
+#+LATEX_HEADER: \usepackage{natbib}
+#+LATEX_HEADER: \let\cite\citep
+
+#+LATEX_CLASS: extarticle
+#+LATEX_CLASS_OPTIONS: [14pt]
+#+BIBLIOGRAPHY: devoir3.bib
+
+
+#+begin_export latex
+\begin{ctitlepage}
+
+\cours{Cours}
+
+\groupe{Groupe 03}
+
+\titre{Titre}
+
+présenté à
+
+Prof
+
+\vfill
+
+par \\
+Prenom, Nom
+
+Le \today
+
+\end{ctitlepage}
+
+\newpage
+\tableofcontents
+\newpage
+#+end_export
+
+
+* Section 1
+# need the first column to use <>
+# <> is used to merge columns together
+#+attr_latex: :options {.5\textwidth}
+#+LABEL: tbl:table1
+#+begin_minipage
+|---+----+-----+-----+-----+---------+------------|
+|   |  N | N^2 | N^3 | N^4 | sqrt(n) | sqrt[4](N) |
+|---+----+-----+-----+-----+---------+------------|
+| / | <> |   < |     |   > |       < |          > |
+| # |  1 |   1 |   1 |   1 |       1 |          1 |
+| # |  2 |   4 |   8 |  16 |  1.4142 |     1.1892 |
+| # |  3 |   9 |  27 |  81 |  1.7321 |     1.3161 |
+|---+----+-----+-----+-----+---------+------------|
+\vspace*{-5mm}
+\captionof{table}{A table}
+#+end_minipage
+#+attr_latex: :options {.5\textwidth}
+#+LABEL: tbl:table2
+#+begin_minipage
+|---+----+-----+-----+-----+---------+------------|
+|   |  N | N^2 | N^3 | N^4 | sqrt(n) | sqrt[4](N) |
+|---+----+-----+-----+-----+---------+------------|
+| / | <> |   < |     |   > |       < |          > |
+| # |  1 |   1 |   1 |   1 |       1 |          1 |
+| # |  2 |   4 |   8 |  16 |  1.4142 |     1.1892 |
+| # |  3 |   9 |  27 |  81 |  1.7321 |     1.3161 |
+|---+----+-----+-----+-----+---------+------------|
+\vspace*{-5mm}
+\captionof{table}{Another table}
+#+end_minipage
+
+#+CAPTION: Regular table
+#+LABEL: tbl:table3
+|---+----+-----+-----+-----+---------+------------|
+|   |  N | N^2 | N^3 | N^4 | sqrt(n) | sqrt[4](N) |
+|---+----+-----+-----+-----+---------+------------|
+| / | <> |   < |     |   > |       < |          > |
+| # |  1 |   1 |   1 |   1 |       1 |          1 |
+| # |  2 |   4 |   8 |  16 |  1.4142 |     1.1892 |
+| # |  3 |   9 |  27 |  81 |  1.7321 |     1.3161 |
+|---+----+-----+-----+-----+---------+------------|
+
+#+CAPTION: Source code
+#+begin_src shell :session :exports both
+ls -l
+#+end_src
+
+#+RESULTS:
+| total      | 152 |      |      |        |     |    |       |                  |
+| -rw-rw-r-- |   1 | bndo | bndo |   1406 | Nov | 16 | 19:55 | config.tex       |
+| drwxrwxr-x |   2 | bndo | bndo |   4096 | Nov | 17 | 23:53 | img              |
+| drwxrwxr-x |   2 | bndo | bndo |   4096 | Nov | 18 | 00:21 | _minted-template |
+| -rw-rw-r-- |   1 | bndo | bndo |    425 | Nov | 17 | 23:53 | packages.tex     |
+| -rw-rw-r-- |   1 | bndo | bndo |    430 | Nov | 18 | 00:21 | template.bbl     |
+| -rw-rw-r-- |   1 | bndo | bndo |    738 | Nov | 16 | 19:47 | template.bib     |
+| -rw-rw-r-- |   1 | bndo | bndo |   3246 | Nov | 18 | 00:21 | template.org     |
+| -rw-rw-r-- |   1 | bndo | bndo | 122403 | Nov | 18 | 00:21 | template.pdf     |
+| -rw-rw-r-- |   1 | bndo | bndo |   3174 | Nov | 18 | 00:21 | template.tex     |
+
+* Section 2
+#+attr_latex: :options {.5\textwidth}
+#+LABEL: fig:figure1
+#+begin_minipage
+#+ATTR_LaTeX: :width .8\linewidth
+[[./img/bear.jpg]]
+\vspace*{-5mm}
+\captionof{figure}{A figure}
+#+end_minipage
+#+attr_latex: :options {.5\textwidth}
+#+LABEL: fig:figure2
+#+begin_minipage
+#+ATTR_LaTeX: :width .8\linewidth
+[[./img/bear.jpg]]
+\vspace*{-5mm}
+\captionof{figure}{Another figure}
+#+end_minipage
+
+#+CAPTION: Regular image
+#+LABEL: fig:figure3
+#+ATTR_LaTeX: :width .4\linewidth
+[[./img/bear.jpg]]
+# needs org-ref
+\newpage
+voir figure [[fig:figure3]]
+
+voir tableau [[tbl:table2]]
+
+
+selon une etude [[cite:&2021]]
+
+\newpage
+
+# to make the references appear in toc
+\phantomsection
+\addcontentsline{toc}{section}{Références}
+# for APA7
+# needs org-ref for the bibliography
+bibliographystyle:apalike
+bibliography:template.bib
