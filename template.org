@@ -10,12 +10,12 @@
 #+LATEX_HEADER: \input{config}
 #+LATEX_HEADER: \onehalfspacing
 # for APA7
-#+LATEX_HEADER: \usepackage{natbib}
-#+LATEX_HEADER: \let\cite\citep
+#+latex_header: \usepackage[style=apa] {biblatex}
+#+latex_header: \addbibresource{template.bib}
+#+latex_header: \let\cite\parencite
 
 #+LATEX_CLASS: extarticle
 #+LATEX_CLASS_OPTIONS: [14pt]
-#+BIBLIOGRAPHY: devoir3.bib
 
 
 #+begin_export latex
@@ -142,7 +142,6 @@ selon une etude [[cite:&2021]]
 # to make the references appear in toc
 \phantomsection
 \addcontentsline{toc}{section}{Références}
-# for APA7
-# needs org-ref for the bibliography
-bibliographystyle:apalike
-bibliography:template.bib
+
+# for biblatex in org-ref
+[[printbibliography:]]
