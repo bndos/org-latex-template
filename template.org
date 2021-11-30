@@ -10,7 +10,6 @@
 #+LATEX_HEADER: \input{config}
 #+LATEX_HEADER: \onehalfspacing
 # for APA7
-#+latex_header: \usepackage[style=apa] {biblatex}
 #+latex_header: \addbibresource{template.bib}
 #+latex_header: \let\cite\parencite
 
